@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的小窝</title>
+<link rel="stylesheet" href="css/style.css" />
+<link href='css/lanren.css' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/phone.css" />
+<link href='http://api.youziku.com/webfont/CSS/56db93e6f629d80c242eb508' rel='stylesheet' type='text/css' />
+</head>
+<body>
+
+
+<div id="section1" class="container-fluid">
+	<canvas id="demo-canvas"></canvas> 	  
+    <!--
+    	用html5的canvas绘图作背景
+    -->
+	<div style="position: absolute;top:0;padding: 0;width: 100%;">
+		<div class="title"><a href="#top"><img src="img/logo.png" width="235"height="76" alt="我的小窝" title=返回顶部 /></a></div>
+	
+<div id="name">殷诗杰</div>
+<hr/>
+<div id="introduction">
+	远方忠诚的儿子和物质的短暂情人
+</div>
+	<div id="button" class="container" style="text-align: center;">
+	<a title="进入博客" href="http://jimmyyen.sinaapp.com/">
+		<button type="button">
+			了解我
+		</button>
+	</a>
+	</div></div>
+	
+	
+	 
+</div>
+
+<div id="section2">
+	<div class="p1">
+		<p>姓名：殷诗杰<br />
+		   出生日期：97.09.20	<br />
+		         职业：学生<br />
+		   爱好：编程，设计，摄影，旅行，读书，绘画<br />
+		   项目经历：独自完成过一个html5营销游戏外包；设计过几个网页；卖过一个网站
+		 <br><span>待补充……</span>  
+		</p>
+		
+    </div>
+<span class="slogan"> 爱生活，爱编程。</span> 
+</div>
+<div id="section3">
+<div class="p2">
+<p>
+	我始终相信“越努力，越幸运”，每个通宵coding的夜晚，望着都市霓虹的灯烁和夜空的繁星点点，我忽然理解了，24亿年前蓝藻的执着……
+</p>		
+</div>
+<span class="slogan">爱生活，爱设计。</span>
+</div>
+<div id="section4">
+	<div id="test-element"></div>
+</div>
+<div id="section5">
+	<div style="text-align: center;margin:20px 0 30px;font-family: '微软雅黑';font-size: large;">点击下一页</div>
+	<div id="phone">
+	<div id="screen" class="">
+		
+		<div class="viewport first">
+			<div class="header">
+				logo
+				<span id="next">下一页</span>
+			</div>
+			<div class="content">
+				<div class="box image">
+					<img src="img/img.png" />
+				</div>
+				<div class="box text">NO MATTER WHAT LABEL IS THROWN YOUR WAY,ONLY YOU CAN DEFINE YOURSELF</div>
+				<div class="box comment">
+					<div class="avatar">
+						<i class="icon-user"></i>
+					</div>
+					<div class="bubble"><p>Hey,edc what do you think of jimmy?</p></div>
+				</div>
+				<div class="box comment second">
+					<div class="avatar">
+						<i class="icon-user"></i>
+					</div>
+					<div class="bubble"><p>No doubt, he is a cool man!</p></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="viewport last">
+			<div class="header">
+				Sit amet..
+				<span id="next">上一页</span>
+			</div>
+			<div class="content">
+				<div class="box image">
+					
+				</div>
+				<div class="box text"></div>
+				<div class="box comment">
+					<div class="avatar">
+						<i class="icon-user"></i>
+					</div>
+					<div class="bubble"></div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+</div>
+<footer><div style="margin:0;padding-top:10px">赞助我吧</div>
+<div id="pay"></div>
+<button >投食</button>
+<button style="letter-spacing: normal;">请吃饭</button>
+</footer>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js" type="text/javascript"></script>
+<script src="js/button.js"></script>
+<script src="js/feature.presenter.1.5.min.js"></script>
+<script src="js/rAF.js"></script>
+<script src="js/demo-2.js"></script>
+      
+<script>
+var settings = [ 
+	{image: 'img/lanren1.jpg', heading: 'web前端', description: '设计与布局，艺术与技术'}, 
+	{image: 'img/lanren2.jpg', heading: 'PHP', description: '“PHP是最好的语言（笑）”'}, 
+	{image: 'img/lanren3.jpg', heading: 'MYSQL', description: '数据库似乎是必不可少的'}, 
+	{image: 'img/lanren4.jpg', heading: 'HTML5绘图', description: 'web开发的‘前沿科技’'}, 
+	{image: 'img/lanren5.jpg', heading: 'css3特效', description: '炫酷的网页特效，比js更强大'},
+	{image: 'img/lanren6.jpg', heading: 'Python爬虫', description: 'Python也许是世界上最简洁的语言'}
+	];
+var options = {
+	circle_radius: 220,
+	normal_feature_size: 100,
+	highlighted_feature_size: 150,
+	top_margin: 100,
+	bottom_margin: 50,
+	spacing: 40,
+	min_padding: 50,
+	heading_font_size: 30,
+	description_font_size: 20,
+	type: 'image'
+};
+var fp = new FeaturePresenter($("#test-element"), settings, options);
+fp.createPresenter();
+
+$(function(){
+	$(".first #next").click(function(){
+		$("#screen").addClass("animate");
+	});
+	$(".last #next").click(function(){
+		$("#screen").removeClass("animate");
+	}); 
+})   
+</script>
+</body>
+</html>

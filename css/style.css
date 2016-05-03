@@ -1,0 +1,133 @@
+#section1,#section2,#section3 {
+	width: 100%;
+}
+#section1 {
+	height: 600px;
+	background: linear-gradient(rgb(240,221,227),#94D9EC);
+	padding: 0;
+	}
+#name{
+	text-align: center;
+	font-size:40px;
+	margin-top:150px;
+	letter-spacing: 6px;
+	font-family:'minijianxiyuan1eee3040a4dcc';
+}	
+hr{
+	margin: auto;
+	width:500px;
+	color:#669;
+	border:1px solid
+	
+}
+#introduction{
+	margin: 0 auto; 
+	width: 470px; 
+	text-align: center; 
+	font-family:'楷体'; 
+	font-size: 30px; 
+	color: #900;
+}
+#section2 {
+	background-color:rgb(240,221,227);
+	height: 400px;
+}
+#section2 .p1{
+	width: 40%;
+	height: 100%;
+	float: left;
+	background:#94D9EC;
+	font-size: 28px;
+	line-height: 1.5em;
+	font-family: "微软雅黑";
+	}
+#section2 .p1 p{
+	margin-left: 15px;
+	color: white;
+}
+#section2 .p1 p span{
+	color: #AC2925;
+}
+#section3 {
+	background-color: #94D9EC;
+	height: 400px;
+}
+#section3 .p2{
+	width: 40%;
+	height: 100%;
+	float: right;
+	background: rgb(240,221,227);
+	
+}
+.p2 p{
+	font-family: "微软雅黑";
+	font-size: 28px;
+	margin: 15px;
+	line-height: 2.5em;
+}
+.slogan{
+	font-family: "微软雅黑";
+	font-size: 100px;
+	margin:30px 20px;
+}
+#section4{
+	background-color: white;
+	height: 600px;
+}
+footer {
+	height: 200px;
+	background-color: #999;
+	font-family: "黑体";
+	font-size: xx-large;
+	letter-spacing: 0.3em;
+	text-align: center;
+	background-position: center;
+	font-weight: bold;
+}
+#section1 button {
+	text-align: center;
+	font-size: 36px;
+	font-family: "Microsoft JhengHei Light";
+	font-weight: 400;
+	letter-spacing: 0.3em;
+	margin-top: 200px;
+	margin-bottom: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #FFF;
+	border: 2px solid #999;
+	border-radius: 0.5em;
+}
+
+body footer button {
+	height: 50px;
+	width: 100px;
+	margin-top: 40px;
+	color: #FFFFFF;
+	background-color: #FBAA99;
+	border-style: none;
+	border-radius: 4px;
+	font-size: 26px;
+	font-family: "楷体";
+}
+
+#pay {
+	height: 180px;
+	width: 150px;
+	position: absolute;
+	background-image: url(../img/pay.png);
+	display: none;
+	top: 0;
+	left:0;
+	right:0;
+	margin:-70px auto;
+}
+
+footer{
+	position: relative;
+}
+
+.title{
+	position: fixed;
+	margin: 0;
+	padding: 0;}
