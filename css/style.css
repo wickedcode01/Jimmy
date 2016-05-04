@@ -31,6 +31,7 @@ hr{
 #section2 {
 	background-color:rgb(240,221,227);
 	height: 400px;
+	text-align:center;
 }
 #section2 .p1{
 	width: 40%;
@@ -51,6 +52,7 @@ hr{
 #section3 {
 	background-color: #94D9EC;
 	height: 400px;
+	text-align:center;
 }
 #section3 .p2{
 	width: 40%;
@@ -68,7 +70,7 @@ hr{
 .slogan{
 	font-family:'lixukexingshu31a3594194dcc';
 	font-size: 200px;
-	margin:30px 20px;
+	line-height:400px;
 }
 #section4{
 	background-color: white;
