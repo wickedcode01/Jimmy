@@ -26,19 +26,19 @@ function getFiles(txtPath) {
     console.log(jsonFiles);
     return jsonFiles;
   }
-
- const paths = getFiles(path.resolve(__dirname,'../txt')) || [];
+const targetPath = path.resolve(__dirname,'../txt');
+ const paths = getFiles(targetPath) || [];
  const list = [];
  const article = {};
  console.log('开始读取...');
  paths.forEach((path)=>{
-    const title = path.replace('..\\txt\\','').split('.')[0];
+    const title = path.replace(targetPath+'\\','').split('.')[0];
     console.log(title,'读取中');
     const time = getupdateTime(path);
     const file = fs.readFileSync(path,'utf-8');
     const id = moment(time.creatTime).valueOf();
     list.push({title,ct:time.createTime,ut:time.updateTime,brief:file.slice(0,20),id});
-    article[id] = {content:file,ct:time.createTime,ut:time.updateTime,title}
+    article[id] = {title,ct:time.createTime,ut:time.updateTime,content:file}
  })
 
  console.log('开始写入...');
