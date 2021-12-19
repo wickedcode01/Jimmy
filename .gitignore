@@ -1,2 +1,2 @@
-/source
-/packScript/node_modules
+node_modules
+/source/dist
