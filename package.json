@@ -1,0 +1,5 @@
+{
+    "scripts": {
+        "post": "node packScript/pack.js"
+      }
+}

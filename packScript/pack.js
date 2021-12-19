@@ -1,6 +1,7 @@
 const fs = require('fs');
 const join = require('path').join;
 const moment = require('moment');
+const path = require("path");
 const getupdateTime = (path) =>{
     const time = fs.statSync(path);
     return {createTime:time.ctime,updateTime:time.mtime}
@@ -26,7 +27,7 @@ function getFiles(txtPath) {
     return jsonFiles;
   }
 
- const paths = getFiles('../txt') || [];
+ const paths = getFiles(path.resolve(__dirname,'../txt')) || [];
  const list = [];
  const article = {};
  console.log('开始读取...');
@@ -42,5 +43,5 @@ function getFiles(txtPath) {
 
  console.log('开始写入...');
 
- fs.writeFile('../list.js','var lists='+JSON.stringify(list),()=>{console.log('列表写入完成')});
- fs.writeFile('../article.js','var articles='+JSON.stringify(article),()=>{console.log('文章写入完成')});
+ fs.writeFile(path.resolve(__dirname,'../list.js'),'var lists='+JSON.stringify(list),()=>{console.log('列表写入完成')});
+ fs.writeFile(path.resolve(__dirname,'../article.js') ,'var articles='+JSON.stringify(article),()=>{console.log('文章写入完成')});
