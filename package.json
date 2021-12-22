@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "post": "node packScript/pack.js",
+        "post": "node packScript/pack.js ",
         "push": " git commit -am '文章更新' && git push && git checkout gh-pages && git checkout -p master list.js article.js txt && git push"
       }
 }

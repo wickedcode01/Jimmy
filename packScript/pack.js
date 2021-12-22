@@ -4,7 +4,7 @@ const moment = require('moment');
 const path = require("path");
 const getupdateTime = (path) =>{
     const time = fs.statSync(path);
-    return {createTime:time.ctime,updateTime:time.mtime}
+    return {createTime:time.birthtime,updateTime:time.mtime}
 }
 
 function getFiles(txtPath) {
@@ -36,7 +36,7 @@ const targetPath = path.resolve(__dirname,'../txt');
     console.log(title,'读取中');
     const time = getupdateTime(path);
     const file = fs.readFileSync(path,'utf-8');
-    const id = moment(time.creatTime).valueOf();
+    const id = moment.utc(time.createTime).valueOf();
     list.push({title,ct:time.createTime,ut:time.updateTime,brief:file.slice(0,20),id});
     article[id] = {title,ct:time.createTime,ut:time.updateTime,content:file}
  })
