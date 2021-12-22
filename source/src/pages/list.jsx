@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
-import { List } from 'antd';
+import { List ,Loading} from 'antd';
 import './list.less'
 export default class list extends Component {
     constructor(){
         super();
-        this.state = {lists:[]}
+        this.state = {lists:[],loading:true}
         const script = document.createElement('script');
         script.src = './list.js';
         document.body.append(script);
         script.onload = () =>{
-            this.setState({lists: window.lists || []})
+            const lists = window.lists.sort((a,b)=>a.id-b.id);
+            this.setState({lists: lists || [],loading:false})
         }
     }
     render() {
@@ -21,6 +22,7 @@ export default class list extends Component {
                     size="large"
                     style={{ cursor: 'pointer' }}
                     dataSource={this.state.lists.reverse()}
+                    loading={this.state.loading}
                     renderItem={item => (
                         <List.Item
                             key={item.id}
@@ -32,7 +34,7 @@ export default class list extends Component {
                         >
                             <List.Item.Meta
                                 title={item.title}
-                                description={item.brief}
+                                description={item.brief+'......'}
                             />
                             {item.content}
                         </List.Item>
