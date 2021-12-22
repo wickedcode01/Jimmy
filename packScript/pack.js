@@ -4,7 +4,6 @@ const moment = require('moment');
 const path = require("path");
 const getupdateTime = (path) =>{
     const time = fs.statSync(path);
-    console.log(time)
     return {createTime:time.birthtime||time.ctime,updateTime:time.mtime}
 }
 
