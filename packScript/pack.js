@@ -4,7 +4,8 @@ const moment = require('moment');
 const path = require("path");
 const getupdateTime = (path) =>{
     const time = fs.statSync(path);
-    return {createTime:time.ctime,updateTime:time.mtime}
+    console.log(time)
+    return {createTime:time.birthtime||time.ctime,updateTime:time.mtime}
 }
 
 function getFiles(txtPath) {
