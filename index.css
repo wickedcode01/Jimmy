@@ -2,6 +2,8 @@ html{
       -webkit-font-smoothing: antialiased;
       -webkit-text-stroke-width: 0.2px;
       -moz-osx-font-smoothing: grayscale;
+      --main-color:rgb(141, 42, 42);
+      --second-color:rgb(255, 255, 255);
 }
 @font-face {
     font-family: 'artname';
@@ -19,11 +21,12 @@ html,body{
     margin: 0;
     padding: 0;
 }
+
 .mainPage{
     padding-top:30vh;
     
     text-align: center;
-    color:white;  
+    color:var(--main-color);  
 
 }
 .content{
@@ -32,10 +35,10 @@ html,body{
 }
 h1{
     text-align: center;
-    color:white;
     font-size: 5vw;
     margin:0;
     font-family: 'artname';
+    font-weight: lighter;
 }
 @keyframes fadeIn {
     from{
@@ -47,30 +50,66 @@ h1{
 }
 hr{
     width:50%;
-    animation: fadeIn 3s;
-    height:1px;
-    background-color: white;
-
+    animation: fadeIn 5s;
+    height:2px;
+    background-color: var(--main-color);
+    border: none;
 }
 .bio{
     display: block;
     text-align: center;
-    color:#F44336;
     font-size: 2.5vw;
     font-family: 'Times New Roman', Times, serif;
     font-weight: lighter;
 }
 button{
     margin:10px;
-    background: none;
-    border:1px solid white;
-    padding:10px 20px;
-    color:white;
+    font-family: 'Times New Roman', Times, serif;
+
+    width:100px;
 }
-button:hover{
-    background: white;
-    color:grey;
+
+
+/* CSS */
+.button-59 {
+  align-items: center;
+  background:none;
+  border: 2px solid var(--main-color);
+  box-sizing: border-box;
+  color: var(--main-color);
+  cursor: pointer;
+  display: inline-flex;
+  fill: var(--main-color);
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  min-width: 140px;
+  outline: 0;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
+
+
+.button-59:hover {
+  border-color: var(--second-color);
+  color: var(--second-color);
+  fill: var(--second-color);
+}
+
+.button-59:active {
+  border-color: var(--second-color);
+  color: var(--second-color);
+  fill: var(--second-color);
+}
+
 #bg{
     position: absolute;
     top:0;

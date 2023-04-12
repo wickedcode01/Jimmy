@@ -17,8 +17,8 @@
       <hr />
       <div class="bio"><span class="typewriter"></span><span class="cursor">_</span></div>
       <div class="action-wrap">
-        <a href="https://github.com/wickedcode01"><button>GITHUB</button></a>
-        <button onclick="window.open('https://wickedcode01.github.io/hexo-blog/')">BLOG</button>
+        <button class="button-59" onclick="window.open('https://github.com/wickedcode01')">GITHUB</button>
+        <button class="button-59" onclick="window.open('https://wickedcode01.github.io/hexo-blog/')">BLOG</button>
       </div>
 
     </div>
@@ -41,24 +41,28 @@
   main();
   // 生成打字机效果并轮播textArr数组里的文字
   const textArr = ['Digital Nomad', 'Coder', 'Thinker'];
+  let cursor = document.querySelector('.cursor');
   function blink(){
-    let cursor = document.querySelector('.cursor');
     if (cursor.style.visibility === 'visible') {
       cursor.style.visibility = 'hidden';
     } else {
       cursor.style.visibility = 'visible';
     }
   }
-  const blinkInterval = setInterval(blink, 500);
+  let interval = setInterval(blink, 500);
   function typeWriter(text, n, i) {
     if (n < (text[i].length)) {
+      clearInterval(interval);
+      // 确保光标可见
+      cursor.style.visibility = 'visible';
       let txt = text[i].substring(0, n + 1);
       document.querySelector('.typewriter').innerHTML = txt;
       n++;
       setTimeout(function () {
-        typeWriter(text, n, i)
+        typeWriter(text, n, i);
       }, 100);
     } else {
+      interval = setInterval(blink, 500);
       setTimeout(function () {
         if (i === text.length - 1) {
           i = 0;
