@@ -5,6 +5,8 @@ import { SMAAPass } from 'three/addons/postprocessing/SMAAPass.js';
 import { GammaCorrectionShader } from 'three/addons/shaders/GammaCorrectionShader.js';
 import { EffectShader } from "./EffectShader.js";
 import { AssetManager } from './AssetManager.js';
+import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
+
 import {
     MeshBVH,
     MeshBVHVisualizer,
@@ -24,9 +26,8 @@ async function main() {
     document.querySelector('#bg').appendChild(renderer.domElement);
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.VSMShadowMap;
-    let k = clientWidth / clientHeight, s = 30;
-    let camera = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 1000);
-    camera.position.set(0, 50, 200);
+    let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(0, 20, 50);
 
     camera.lookAt(scene.position);
     // Skybox
@@ -45,21 +46,30 @@ async function main() {
         'dist/crystal.png',
         'dist/crystal.png',
         'dist/crystal.png']
+    const white=[
+        'dist/blue.png',
+        'dist/blue.png',
+        'dist/blue.png',
+       'dist/blue.png',
+        'dist/blue.png',
+       'dist/blue.png',
+    ]
     const environment = await new THREE.CubeTextureLoader().loadAsync(bluesky);
+
     // Lighting
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.35);
-    directionalLight.position.set(150, 200, 50);
-    const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.15);
-    directionalLight2.color.setRGB(1.0, 1.0, 1.0);
-    directionalLight2.position.set(-50, 200, -150);
-    scene.add(directionalLight);
-    scene.add(directionalLight2);
+    const ambientLight = new THREE.AmbientLight(0x000000, 1);
+    scene.add(ambientLight);
+
     let diamondGeo = (await AssetManager.loadGLTFAsync("./dist/models/diamond.glb")).scene.children[0].children[0].children[0].children[0].children[0].geometry;
     diamondGeo.scale(15, 15, 15);
     diamondGeo.translate(0, 0, 0);
+    const cubeRenderTarget = new THREE.WebGLCubeRenderTarget(256, { generateMipmaps: true, minFilter: THREE.LinearMipmapLinearFilter });
+    const cubeCamera = new THREE.CubeCamera(1, 100000, cubeRenderTarget);
+    scene.add(cubeCamera);
+
     const makeDiamond = (geo, {
         color = new THREE.Color(1, 1, 1),
-        ior = 2.5
+        ior = 2.4
     } = {}) => {
         const mergedGeometry = geo;
         mergedGeometry.boundsTree = new MeshBVH(mergedGeometry.toNonIndexed(), { lazyGeneration: false, strategy: SAH });
@@ -85,7 +95,7 @@ async function main() {
                 projectionMatrixInv: { value: camera.projectionMatrixInverse },
                 viewMatrixInv: { value: camera.matrixWorld },
                 chromaticAberration: { value: true },
-                aberrationStrength: { value: 0.1 },
+                aberrationStrength: { value: 0.01 },
                 resolution: { value: new THREE.Vector2(clientWidth, clientHeight) }
             },
             vertexShader: /*glsl*/ `
@@ -204,7 +214,7 @@ async function main() {
 
     function animate() {
         renderer.render(scene, camera);
-        diamond.rotation.y += 0.01;
+        diamond.rotation.y += 0.001;
         requestAnimationFrame(animate);
     }
 
