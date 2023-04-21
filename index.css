@@ -2,8 +2,8 @@ html{
       -webkit-font-smoothing: antialiased;
       -webkit-text-stroke-width: 0.2px;
       -moz-osx-font-smoothing: grayscale;
-      --main-color:rgb(141, 42, 42);
-      --second-color:rgb(255, 255, 255);
+      --main-color:rgba(255, 255, 255, 0.85);
+      --second-color:rgb(7, 135, 255);
 }
 @font-face {
     font-family: 'artname';
@@ -17,14 +17,28 @@ html{
   }
 html,body{
     height: 100%;
-    background: url(./dist/crystal.png);
     margin: 0;
     padding: 0;
+}
+html{
+    background: url(./dist/crystal.png);
+}
+@keyframes identifier {
+    from{
+        backdrop-filter: blur(0px);
+    }
+    to{
+        backdrop-filter: blur(5px);
+    }
+}
+body{
+    animation:identifier 5s ;
+    backdrop-filter: blur(5px);
 }
 
 .mainPage{
     padding-top:30vh;
-    
+   
     text-align: center;
     color:var(--main-color);  
 
@@ -65,8 +79,7 @@ hr{
 button{
     margin:10px;
     font-family: 'Times New Roman', Times, serif;
-
-    width:100px;
+    width:90px;
 }
 
 
@@ -86,9 +99,7 @@ button{
   justify-content: center;
   letter-spacing: -.8px;
   line-height: 24px;
-  min-width: 140px;
   outline: 0;
-  padding: 0 17px;
   text-align: center;
   text-decoration: none;
   transition: all .3s;
