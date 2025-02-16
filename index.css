@@ -1,0 +1,134 @@
+html{
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke-width: 0.2px;
+      -moz-osx-font-smoothing: grayscale;
+      --main-color:rgba(255, 255, 255, 0.85);
+      --second-color:rgb(7, 135, 255);
+}
+@font-face {
+    font-family: 'artname';
+    font-display: swap;
+    src: url('//at.alicdn.com/t/webfont_s5jusrp3c7.eot'); /* IE9*/
+    src: url('//at.alicdn.com/t/webfont_s5jusrp3c7.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('//at.alicdn.com/t/webfont_s5jusrp3c7.woff2') format('woff2'),
+    url('//at.alicdn.com/t/webfont_s5jusrp3c7.woff') format('woff'), /* chrome、firefox */
+    url('//at.alicdn.com/t/webfont_s5jusrp3c7.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('//at.alicdn.com/t/webfont_s5jusrp3c7.svg#Lobster-Regular') format('svg'); /* iOS 4.1- */
+  }
+html,body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+html{
+    background: url(./dist/crystal.png);
+}
+@keyframes identifier {
+    from{
+        backdrop-filter: blur(0px);
+    }
+    to{
+        backdrop-filter: blur(5px);
+    }
+}
+body{
+    animation:identifier 5s ;
+    backdrop-filter: blur(5px);
+}
+
+.mainPage{
+    padding-top:30vh;
+   
+    text-align: center;
+    color:var(--main-color);  
+
+}
+.content{
+    z-index: 999;
+    position: relative;
+}
+h1{
+    text-align: center;
+    font-size: 5vw;
+    margin:0;
+    font-family: 'artname';
+    font-weight: lighter;
+}
+@keyframes fadeIn {
+    from{
+        width:0;
+    }
+    to{
+        width:50%
+    }
+}
+hr{
+    width:50%;
+    animation: fadeIn 5s;
+    height:2px;
+    background-color: var(--main-color);
+    border: none;
+}
+.bio{
+    display: block;
+    text-align: center;
+    font-size: 2.5vw;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: lighter;
+}
+button{
+    margin:10px;
+    font-family: 'Times New Roman', Times, serif;
+    width:90px;
+}
+
+
+/* CSS */
+.button-59 {
+  align-items: center;
+  background:none;
+  border: 2px solid var(--main-color);
+  box-sizing: border-box;
+  color: var(--main-color);
+  cursor: pointer;
+  display: inline-flex;
+  fill: var(--main-color);
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  outline: 0;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+
+.button-59:hover {
+  border-color: var(--second-color);
+  color: var(--second-color);
+  fill: var(--second-color);
+}
+
+.button-59:active {
+  border-color: var(--second-color);
+  color: var(--second-color);
+  fill: var(--second-color);
+}
+
+#bg{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    z-index: 0;
+}
+
+.action-wrap{
+    margin-top:30px;
+}

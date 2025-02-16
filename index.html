@@ -1,20 +1,79 @@
+<!-- 生成html模板 -->
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Your App</title>
-    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
-    <link rel="stylesheet" href="./umi.css" />
-    <script>
-      window.routerBase = "/Jimmy";
-    </script>
-    <script>
-      //! umi version: 3.3.9
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
 
-    <script src="./umi.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Jimmy's homepage</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+</head>
+
+<body>
+  <div class="mainPage">
+    <div id="bg"></div>
+    <div class="content">
+      <h1>Jimmy</h1>
+      <hr />
+      <div class="bio"><span class="typewriter"></span><span class="cursor">_</span></div>
+      <div class="action-wrap">
+        <button class="button-59" onclick="window.open('https://github.com/wickedcode01')">GITHUB</button>
+        <button class="button-59" onclick="window.open('https://wickedcode01.github.io/hexo-blog/')">BLOG</button>
+      </div>
+
+    </div>
+
+
+
+  </div>
+</body>
+<script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+<!-- <script type="importmap">
+	{
+	"imports": {
+		"three": "https://unpkg.com/three@0.150.1/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.150.1/examples/jsm/"
+	}
+	}
+</script> -->
+<script type="module">
+  // 生成打字机效果并轮播textArr数组里的文字
+  const textArr = ['Digital Nomad', 'Coder', 'Thinker'];
+  let cursor = document.querySelector('.cursor');
+  function blink(){
+    if (cursor.style.visibility === 'visible') {
+      cursor.style.visibility = 'hidden';
+    } else {
+      cursor.style.visibility = 'visible';
+    }
+  }
+  let interval = setInterval(blink, 500);
+  function typeWriter(text, n, i) {
+    if (n < (text[i].length)) {
+      clearInterval(interval);
+      // 确保光标可见
+      cursor.style.visibility = 'visible';
+      let txt = text[i].substring(0, n + 1);
+      document.querySelector('.typewriter').innerHTML = txt;
+      n++;
+      setTimeout(function () {
+        typeWriter(text, n, i);
+      }, 100);
+    } else {
+      interval = setInterval(blink, 500);
+      setTimeout(function () {
+        if (i === text.length - 1) {
+          i = 0;
+        } else {
+          i++;
+        }
+        typeWriter(text, 0, i)
+      }, 2000);
+    }
+  }
+
+  typeWriter(textArr, 0, 0);
+
+</script>
+
 </html>
