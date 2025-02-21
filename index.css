@@ -33,7 +33,16 @@ body {
     animation: identifier 5s;
     backdrop-filter: blur(5px);
 }
-
+.profile-pic{
+    margin-top:50px;
+    
+}
+.profile-pic img{
+    width:15vw;
+    max-width: 180px;
+    min-width: 100px;
+    border-radius: 50%;
+}
 .mainPage {
     text-align: center;
 
@@ -46,7 +55,7 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 5vw;
+    font-size: 50px;
     background: var(--colorful-bg);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -58,7 +67,7 @@ h1 {
     display: block;
     text-align: center;
     font-size: 24px;
-    color: var(--main-color);
+    color: var(--third-color);
 }
 
 button img {

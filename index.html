@@ -13,6 +13,10 @@
   <div class="mainPage">
     <div id="bg"></div>
     <div class="content">
+      <div class="profile-pic">
+        <img src="./dist/profile.jpeg" alt="" srcset="">
+      </div>
+
       <h1>Shijie Yin</h1>
 
       <div class="bio"><span class="typewriter"></span><span class="cursor">_</span></div>
@@ -80,7 +84,7 @@
             <div class="timeline-date">2024</div>
             <div class="timeline-content">
               <h3>Outlier</h3>
-              <p>Software Developer</p>
+              <span>Software Developer</span>
               <ul>
                 <li>Help LLM align with human feedback in coding and reasoning.</li>
                 <li>Craft and answer questions related to computer science in order to help train AI models.</li>
@@ -92,7 +96,7 @@
             <div class="timeline-date">2021 - 2023</div>
             <div class="timeline-content">
               <h3>Alibaba Group</h3>
-              <p>Software Development Engineer</p>
+              <span>Software Development Engineer</span>
               <ul>
                 <li>Developed React-based projects for mobile and PC finance platforms and collaborated with a
                   cross-functional team to deliver solutions that supported 200 million users globally.</li>
@@ -107,7 +111,7 @@
             <div class="timeline-date">2019 - 2021</div>
             <div class="timeline-content">
               <h3>Wind Information Co., Ltd</h3>
-              <p>Front-end Engineer</p>
+              <span>Front-end Engineer</span>
               <ul>
                 <li>Spearheaded the front-end refactor of legacy projects, migrating from jQuery to React, resulting in
                   a 40%
@@ -124,6 +128,25 @@
         </div>
       </div>
 
+      <div class="section">
+        <h2>Education</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2023 - 2025</div>
+            <div class="timeline-content">
+              <h3>Northeastern University</h3>
+              <span>Master's Degree in Informatics - Cloud Computing</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2015 - 2019</div>
+            <div class="timeline-content">
+              <h3>Yangzhou University</h3>
+              <span>Bachlor's degree in Computer Science</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
 
@@ -171,7 +194,7 @@
           i++;
         }
         typeWriter(text, 0, i)
-      }, 2000);
+      }, 3000);
     }
   }
 
