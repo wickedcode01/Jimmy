@@ -33,7 +33,7 @@ html {
 body {
   font-family: "Space Grotesk", "Segoe UI", sans-serif;
   color: var(--ink);
-  background-color: var(--bg-0);
+  background-color: transparent;
   position: relative;
 }
 
@@ -41,13 +41,34 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   background:
-    radial-gradient(circle at 15% 10%, rgba(255, 122, 89, 0.2), transparent 35%),
-    radial-gradient(circle at 85% 20%, rgba(45, 212, 191, 0.18), transparent 40%),
-    linear-gradient(135deg, var(--bg-0), var(--bg-1) 45%, var(--bg-2));
+    radial-gradient(circle at 20% 15%, rgba(255, 122, 89, 0.35), transparent 45%),
+    radial-gradient(circle at 80% 20%, rgba(45, 212, 191, 0.28), transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(250, 204, 21, 0.25), transparent 45%),
+    linear-gradient(120deg, #0b0f16 0%, #111b2b 40%, #1a2b3f 60%, #0f172a 100%);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 140% 140%, 140% 140%, 140% 140%, 200% 200%;
+  background-position: 0% 0%, 100% 0%, 50% 100%, 0% 50%;
+  animation: auroraShift 18s ease-in-out infinite;
+  filter: saturate(1.15);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: -10%;
+  z-index: 0;
+  background:
+    conic-gradient(from 120deg at 50% 50%,
+      rgba(255, 122, 89, 0.15),
+      rgba(45, 212, 191, 0.18),
+      rgba(96, 165, 250, 0.18),
+      rgba(250, 204, 21, 0.15),
+      rgba(255, 122, 89, 0.15));
+  mix-blend-mode: screen;
+  opacity: 0.35;
+  animation: auroraSpin 26s linear infinite;
 }
 
 .mainPage {
@@ -83,7 +104,7 @@ body::before {
 #bg {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: -2;
   opacity: 0.55;
   pointer-events: none;
 }
@@ -96,7 +117,7 @@ body::before {
 
 .content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 1100px;
   margin: 0 auto;
   padding: 56px 24px 90px;
@@ -339,6 +360,27 @@ body::before {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes auroraShift {
+  0% {
+    background-position: 0% 0%, 100% 0%, 50% 100%, 0% 50%;
+  }
+  50% {
+    background-position: 100% 20%, 0% 20%, 60% 0%, 100% 50%;
+  }
+  100% {
+    background-position: 0% 0%, 100% 0%, 50% 100%, 0% 50%;
+  }
+}
+
+@keyframes auroraSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
